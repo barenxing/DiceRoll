@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var dice = ["die.face.1", "die.face.6"]
+    @State var dice = Array(repeating: "die.face.1", count: 3)
     var body: some View {
         VStack {
-                Text("\(Image(systemName: dice[0]))")
-                Text("\(Image(systemName: dice[1]))")
+            ForEach(dice, id: \.self) { die in
+                Text("\(Image(systemName: die))")
+            }
         }
         .font(.system(size: 200))
         .padding()
         .onTapGesture(count: 2) {
-            for i in 0...1 {
+            for i in 0...dice.count-1 {
                 dice[i] = "die.face.\(Int.random(in: 1...6))"
             }
         }
