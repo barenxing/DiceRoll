@@ -14,6 +14,7 @@
 		85AC4449286975CF00AEBCD1 /* DiceRollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC4448286975CF00AEBCD1 /* DiceRollTests.swift */; };
 		85AC4453286975CF00AEBCD1 /* DiceRollUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC4452286975CF00AEBCD1 /* DiceRollUITests.swift */; };
 		85AC4455286975CF00AEBCD1 /* DiceRollUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC4454286975CF00AEBCD1 /* DiceRollUITestsLaunchTests.swift */; };
+		85AC446528697DED00AEBCD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85AC446428697DED00AEBCD1 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,9 @@
 		85AC444E286975CF00AEBCD1 /* DiceRollUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiceRollUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AC4452286975CF00AEBCD1 /* DiceRollUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollUITests.swift; sourceTree = "<group>"; };
 		85AC4454286975CF00AEBCD1 /* DiceRollUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		85AC446228697A0A00AEBCD1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		85AC446328697A3200AEBCD1 /* References.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = References.md; sourceTree = "<group>"; };
+		85AC446428697DED00AEBCD1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 		85AC442B286975CD00AEBCD1 = {
 			isa = PBXGroup;
 			children = (
+				85AC446428697DED00AEBCD1 /* .gitignore */,
+				85AC4461286979E100AEBCD1 /* DiceRollDocs */,
 				85AC4436286975CD00AEBCD1 /* DiceRoll */,
 				85AC4447286975CF00AEBCD1 /* DiceRollTests */,
 				85AC4451286975CF00AEBCD1 /* DiceRollUITests */,
@@ -125,6 +131,15 @@
 				85AC4454286975CF00AEBCD1 /* DiceRollUITestsLaunchTests.swift */,
 			);
 			path = DiceRollUITests;
+			sourceTree = "<group>";
+		};
+		85AC4461286979E100AEBCD1 /* DiceRollDocs */ = {
+			isa = PBXGroup;
+			children = (
+				85AC446228697A0A00AEBCD1 /* README.md */,
+				85AC446328697A3200AEBCD1 /* References.md */,
+			);
+			name = DiceRollDocs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85AC443F286975CF00AEBCD1 /* Preview Assets.xcassets in Resources */,
+				85AC446528697DED00AEBCD1 /* .gitignore in Resources */,
 				85AC443C286975CF00AEBCD1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
