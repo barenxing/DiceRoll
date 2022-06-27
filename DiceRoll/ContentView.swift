@@ -8,18 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var dice = ["die.face.1", "die.face.6"]
     var body: some View {
         VStack {
-                Text("\(Image(systemName: "die.face.1"))")
-                Text("\(Image(systemName: "die.face.2"))")
-                Text("\(Image(systemName: "die.face.3"))")
-                Text("\(Image(systemName: "die.face.4"))")
-                Text("\(Image(systemName: "die.face.5"))")
-                Text("\(Image(systemName: "die.face.6"))")
+                Text("\(Image(systemName: dice[0]))")
+                Text("\(Image(systemName: dice[1]))")
         }
-        .font(.system(size: 100))
+        .font(.system(size: 200))
         .padding()
+        .onTapGesture(count: 2) {
+            for i in 0...1 {
+                dice[i] = "die.face.\(Int.random(in: 1...6))"
+            }
+        }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
