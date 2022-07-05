@@ -32,7 +32,6 @@ struct ContentView: View {
             }
         }
     }
-
 }
 
 struct ContentView_Previews: PreviewProvider {
