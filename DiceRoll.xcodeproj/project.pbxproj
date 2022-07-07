@@ -15,6 +15,7 @@
 		85AC4453286975CF00AEBCD1 /* DiceRollUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC4452286975CF00AEBCD1 /* DiceRollUITests.swift */; };
 		85AC4455286975CF00AEBCD1 /* DiceRollUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC4454286975CF00AEBCD1 /* DiceRollUITestsLaunchTests.swift */; };
 		85AC446528697DED00AEBCD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85AC446428697DED00AEBCD1 /* .gitignore */; };
+		85F75195287790D3006EA8C0 /* ShakeGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F75194287790D3006EA8C0 /* ShakeGestureManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		85AC446228697A0A00AEBCD1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		85AC446328697A3200AEBCD1 /* References.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = References.md; sourceTree = "<group>"; };
 		85AC446428697DED00AEBCD1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		85F75194287790D3006EA8C0 /* ShakeGestureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeGestureManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				85AC4437286975CD00AEBCD1 /* DiceRollApp.swift */,
 				85AC4439286975CD00AEBCD1 /* ContentView.swift */,
+				85F75194287790D3006EA8C0 /* ShakeGestureManager.swift */,
 				85AC443B286975CF00AEBCD1 /* Assets.xcassets */,
 				85AC443D286975CF00AEBCD1 /* Preview Content */,
 			);
@@ -276,6 +279,7 @@
 			files = (
 				85AC443A286975CD00AEBCD1 /* ContentView.swift in Sources */,
 				85AC4438286975CD00AEBCD1 /* DiceRollApp.swift in Sources */,
+				85F75195287790D3006EA8C0 /* ShakeGestureManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

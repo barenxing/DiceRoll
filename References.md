@@ -17,5 +17,8 @@ This is the reference file for DiceRoll Project
 - **Stack Overflow**
   - [Using Range and Count](https://stackoverflow.com/questions/57244713/get-index-in-foreach-in-swiftui)
   - [Iterate over two arrays simultaneously](https://stackoverflow.com/questions/29217690/iterate-over-two-arrays-simultaneously#)
+  - [Detect shake gesture IOS Swift](https://stackoverflow.com/questions/33503531/detect-shake-gesture-ios-swift)
 - **Game-icons.net**
   - [116 Board & Card Icons](https://game-icons.net/tags/board.html)
+- **blckbirds.com**
+  - [How To Detect Shake Gestures In SwiftUI](https://blckbirds.com/post/how-to-detect-shake-gestures-in-swiftui/)

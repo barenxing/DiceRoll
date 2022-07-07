@@ -13,26 +13,34 @@ struct ContentView: View {
     @State private var rotates = Array(repeating: false, count: diceCount)
 
     var body: some View {
-        VStack {
-            ForEach(Array(dice.enumerated()), id: \.offset) { i, die in
-                Image(systemName: die)
-                    .resizable()
-                    .foregroundColor(.blue)
-                    .frame(width: 200, height: 200, alignment: .center)
-                    .rotationEffect(Angle.degrees(rotates[i] ? 360*5: 0))
-                    .animation(Animation.easeInOut, value: rotates[i])
-                    .padding()
+        ZStack {
+            ShakableViewRepresentable()
+                .allowsHitTesting(false)
+            VStack {
+                ForEach(Array(dice.enumerated()), id: \.offset) { i, die in
+                    Image(systemName: die)
+                        .resizable()
+                        .foregroundColor(.blue)
+                        .frame(width: 200, height: 200, alignment: .center)
+                        .rotationEffect(Angle.degrees(rotates[i] ? 360*5: 0))
+                        .animation(Animation.easeInOut, value: rotates[i])
+                        .padding()
 
+                }
+            }
+            .onTapGesture(count: 1) {
+                rollDice()
+            }
+            .gesture(DragGesture()
+                .onEnded({_ in
+                    rollDice()
+                })
+            )
+            .onReceive(messagePublisher) { _ in
+                rollDice()
             }
         }
-        .onTapGesture(count: 1) {
-            rollDice()
-        }
-        .gesture(DragGesture()
-            .onEnded({_ in
-                rollDice()
-            })
-        )
+
     }
     
     func rollDice() {
