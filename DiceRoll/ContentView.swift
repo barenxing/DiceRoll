@@ -25,11 +25,20 @@ struct ContentView: View {
 
             }
         }
-        .onTapGesture(count: 2) {
-            for i in 0..<ContentView.diceCount {
-                rotates[i].toggle()
-                dice[i] = "die.face.\(Int.random(in: 1...6))"
-            }
+        .onTapGesture(count: 1) {
+            rollDice()
+        }
+        .gesture(DragGesture()
+            .onEnded({_ in
+                rollDice()
+            })
+        )
+    }
+    
+    func rollDice() {
+        for i in 0..<ContentView.diceCount {
+            rotates[i].toggle()
+            dice[i] = "die.face.\(Int.random(in: 1...6))"
         }
     }
 }
