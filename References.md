@@ -17,3 +17,5 @@ This is the reference file for DiceRoll Project
 - **Stack Overflow**
   - [Using Range and Count](https://stackoverflow.com/questions/57244713/get-index-in-foreach-in-swiftui)
   - [Iterate over two arrays simultaneously](https://stackoverflow.com/questions/29217690/iterate-over-two-arrays-simultaneously#)
+- **Game-icons.net**
+  - [116 Board & Card Icons](https://game-icons.net/tags/board.html)
