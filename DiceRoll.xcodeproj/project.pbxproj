@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		853E2FC9287E6CF2009B37F7 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E2FC8287E6CF2009B37F7 /* UtilityExtensions.swift */; };
+		853E2FCB287E76D6009B37F7 /* DiceStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E2FCA287E76D6009B37F7 /* DiceStackView.swift */; };
 		85AC4438286975CD00AEBCD1 /* DiceRollApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC4437286975CD00AEBCD1 /* DiceRollApp.swift */; };
 		85AC443A286975CD00AEBCD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC4439286975CD00AEBCD1 /* ContentView.swift */; };
 		85AC443C286975CF00AEBCD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85AC443B286975CF00AEBCD1 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		853E2FC8287E6CF2009B37F7 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
+		853E2FCA287E76D6009B37F7 /* DiceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceStackView.swift; sourceTree = "<group>"; };
 		85AC4434286975CD00AEBCD1 /* DiceRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiceRoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AC4437286975CD00AEBCD1 /* DiceRollApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollApp.swift; sourceTree = "<group>"; };
 		85AC4439286975CD00AEBCD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				85AC4437286975CD00AEBCD1 /* DiceRollApp.swift */,
 				85AC4439286975CD00AEBCD1 /* ContentView.swift */,
+				853E2FCA287E76D6009B37F7 /* DiceStackView.swift */,
 				85F75194287790D3006EA8C0 /* ShakeGestureManager.swift */,
 				85AC443B286975CF00AEBCD1 /* Assets.xcassets */,
 				85AC443D286975CF00AEBCD1 /* Preview Content */,
@@ -287,6 +290,7 @@
 				85B2AFA0287D1DA9005801C1 /* SettingsView.swift in Sources */,
 				85AC4438286975CD00AEBCD1 /* DiceRollApp.swift in Sources */,
 				853E2FC9287E6CF2009B37F7 /* UtilityExtensions.swift in Sources */,
+				853E2FCB287E76D6009B37F7 /* DiceStackView.swift in Sources */,
 				85F75195287790D3006EA8C0 /* ShakeGestureManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
