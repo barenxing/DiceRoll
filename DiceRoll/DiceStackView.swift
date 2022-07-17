@@ -9,62 +9,42 @@
 import SwiftUI
 
 struct DiceStackView: View {
-    private(set) var diceCount: Int
-    @State private var diceFaces: Array<String>
-    @State private var rotateFaces: Array<Bool>
-
-    
-    init(diceCount: Int) {
-        self.diceCount = diceCount
-        diceFaces = Array(repeating: "die.face.1", count: diceCount)
-        rotateFaces = Array(repeating: false, count: diceCount)
-    }
-    
+    @EnvironmentObject var game: DiceGame
     
     var body: some View {
         GeometryReader { geo in
             ZStack {
                 ShakableViewRepresentable()
                     .allowsHitTesting(false)
+                    .onReceive(messagePublisher) { _ in game.rollDice() }
+
                 VStack {
-                    let size = min(geo.size.width, geo.size.height / Double(diceCount)) * 0.75
-                    ForEach(Array(diceFaces.enumerated()), id: \.offset) { i, die in
+                    Text("Total: \(game.totalValue)")
+                        .font(.title2)
+
+                    let size = min(geo.size.width, geo.size.height / Double(game.diceCount)) * 0.75
+                    ForEach(Array(game.diceFaces.enumerated()), id: \.offset) { i, die in
                         Image(systemName: die)
                             .resizable()
                             .foregroundColor(.blue)
                             .frame(width: size, height: size, alignment: .center)
-                            .rotationEffect(Angle.degrees(rotateFaces[i] ? 360*5: 0))
-                            .animation(Animation.easeInOut, value: rotateFaces[i])
+                            .rotationEffect(Angle.degrees(game.rolling[i] ? 360*5: 0))
+                            .animation(Animation.easeInOut, value: game.rolling[i])
                             .padding()
+                    } // ForEach
+                }
+                    .onTapGesture(count: 1) { game.rollDice() }
+                    .gesture(DragGesture().onEnded({_ in game.rollDice()}))
 
-                    }
-                }
-                .onTapGesture(count: 1) {
-                    rollDice()
-                }
-                .gesture(DragGesture()
-                    .onEnded({_ in
-                        rollDice()
-                    })
-                )
-                .onReceive(messagePublisher) { _ in
-                    rollDice()
-                }
-            }
+            } // ZStack
             .ignoresSafeArea()
-        }
-    }
-    
-    func rollDice() {
-        for i in 0..<diceCount {
-            rotateFaces[i].toggle()
-            diceFaces[i] = "die.face.\(Int.random(in: 1...6))"
-        }
-    }
-}
+        } // Geo Reader
+    } // body
+} // struct
 
 struct DiceStackView_Previews: PreviewProvider {
     static var previews: some View {
-        DiceStackView(diceCount: 3)
+        DiceStackView()
+            .environmentObject(DiceGame(diceCount: 3, faceColor: .blue))
     }
 }

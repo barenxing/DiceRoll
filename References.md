@@ -22,3 +22,5 @@ This is the reference file for DiceRoll Project
   - [116 Board & Card Icons](https://game-icons.net/tags/board.html)
 - **blckbirds.com**
   - [How To Detect Shake Gestures In SwiftUI](https://blckbirds.com/post/how-to-detect-shake-gestures-in-swiftui/)
+- **SwiftUI Lab**
+  - [Alignment Guides in SwiftUI](https://swiftui-lab.com/alignment-guides/)
