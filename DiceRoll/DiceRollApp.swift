@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct DiceRollApp: App {
-    @StateObject var game = DiceGame(diceCount: 1, faceColor: .blue)
+    @StateObject var game = DiceGame()
     
     var body: some Scene {
         WindowGroup {

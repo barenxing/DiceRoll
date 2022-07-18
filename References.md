@@ -24,3 +24,5 @@ This is the reference file for DiceRoll Project
   - [How To Detect Shake Gestures In SwiftUI](https://blckbirds.com/post/how-to-detect-shake-gestures-in-swiftui/)
 - **SwiftUI Lab**
   - [Alignment Guides in SwiftUI](https://swiftui-lab.com/alignment-guides/)
+- **UI Gradients**
+ - [UI Gradients](https://uigradients.com)

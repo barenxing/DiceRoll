@@ -7,28 +7,33 @@
 
 import SwiftUI
 
+
+enum TabItemTag {
+    case dice
+    case setting
+}
+
 struct ContentView: View {
+    @EnvironmentObject var game: DiceGame
+    @State var tabSelection = TabItemTag.dice
+
     var body: some View {
-        TabView {
+        TabView (selection: $tabSelection) {
             DiceStackView()
                 .tabItem {
                     Label("Dice", systemImage: "die.face.4")
                 }
-            SettingsView()
-                .tabItem( {
+                .tag(TabItemTag.dice)
+                .onAppear(perform: { game.rollDice() })
+            SettingsView(tabSelection: $tabSelection)
+                .tabItem{
                     Label("Settings", systemImage: "gear")
-                })
+                }
+                .tag(TabItemTag.setting)
         }
-        
-        
-//        ZStack {
-//            LinearGradient(gradient: Gradient(stops: [
-//                    Gradient.Stop(color: Color(hex: 0xFFFFFF), location: 0.0),
-//                    Gradient.Stop(color: Color(hex: 0xEF3B36), location: 1.0)]),
-//                    startPoint: .top, endPoint: .bottom)
-//            DiceStackView(diceCount: 3)
-//        }
-//        .ignoresSafeArea()
+        .onChange(of: tabSelection) { _ in
+            game.rollDice()
+        }
     }
 }
 

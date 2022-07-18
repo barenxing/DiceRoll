@@ -9,26 +9,31 @@
 import SwiftUI
 
 class DiceGame: ObservableObject {
+    // number of faces on each die, constant for now
+    private let faces = 6
+    let colorOptions: Array<Color> = [.pink, .blue, .black, .green, .indigo, .purple, .brown]
+
     @Published var diceCount: Int {
         didSet {
-            diceValues = Array(repeating: Int.random(in: 1...6), count: diceCount)
-            rolling = Array(repeating: false, count: diceCount)
+            diceValues = Array(repeating: 1, count: diceCount)
+            rolling = Array(repeating: true, count: diceCount)
             rollDice()
         }
     }
-    
-    @Published var faceColor: Color = .blue
+    @Published var faceColor: Color
     @Published var diceValues: Array<Int>
+    
+    // for rolling to be an published value, need to keep it
+    // as an array and not a calculated value
     @Published var rolling: Array<Bool>
-    private let faces = 6 // number of faces on each die, constant for now
     
-    
-    init(diceCount count: Int, faceColor color: Color) {
+    init(diceCount count: Int = 2, faceColor color: Color = .pink) {
         diceCount = count
         faceColor = color
         
-        diceValues = Array(repeating: Int.random(in: 1...6), count: count)
-        rolling = Array(repeating: false, count: count)
+        diceValues = Array(repeating: 1, count: count)
+        rolling = Array(repeating: true, count: count)
+        rollDice()
     }
     
     // MARK: - calculated var
@@ -48,7 +53,7 @@ class DiceGame: ObservableObject {
     func setFaceColor(color: Color) {
         faceColor = color
     }
-    
+
     func rollDice() {
         for i in 0..<diceCount {
             rolling[i].toggle()

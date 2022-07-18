@@ -10,37 +10,56 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var game: DiceGame
-    private let colorOption: Array<Color> = [.blue, .green, .pink, .purple]
-    private let countOption = [1, 2, 3, 4, 5, 6]
+    @Binding var tabSelection: TabItemTag
+    private let diceNumberOptions = [1, 2, 3, 4, 5, 6]
 
     var body: some View {
-        Form {
-            Section(header: Text("How many dice?")) {
-                Picker("How many dice?", selection: $game.diceCount) {
-                    ForEach(countOption, id: \.self) {
-                        Text("\($0)")
+        NavigationView {
+            Form {
+                Section(header: Text("How many dice?")) {
+                    Picker("How many dice?", selection: $game.diceCount) {
+                        ForEach(diceNumberOptions, id: \.self) {
+                            Text("\($0)")
+                        }
+                    }
+                        .pickerStyle(SegmentedPickerStyle())
+                }
+            
+                Picker("Die face color?", selection: $game.faceColor) {
+                    ForEach(game.colorOptions, id: \.self) {
+                        ColorChoiceView(color: $0)
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
-            }
-            Section {
-                Picker("Face color?", selection: $game.faceColor) {
-                    ForEach(colorOption, id: \.self) {
-                        Text("\($0.description.capitalized)")
+                
+                Section {
+                    Button("Submit") {
+                        tabSelection = TabItemTag.dice
+                        game.rollDice()
                     }
                 }
-            }
-        }
+            } // Form
+            .navigationTitle("Settings")
+        } // NavigationView
     } // body
-    
-    
 }
 
 
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-            .environmentObject(DiceGame(diceCount: 3, faceColor: .blue))
+struct ColorChoiceView: View {
+    var color: Color
+    var body: some View {
+        HStack {
+            Text("  ")
+                .background(color)
+            Text("\(color.description.capitalized)")
+        }
     }
 }
+
+//struct SettingsView_Previews: PreviewProvider {
+//    var tab = TabItemTag.setting
+//
+//    static var previews: some View {
+//        SettingsView(tab: $tab)
+//            .environmentObject(DiceGame())
+//    }
+//}
