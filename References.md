@@ -26,3 +26,5 @@ This is the reference file for DiceRoll Project
   - [Alignment Guides in SwiftUI](https://swiftui-lab.com/alignment-guides/)
 - **UI Gradients**
  - [UI Gradients](https://uigradients.com)
+- **Daddy Coding**
+- **[SwiftUI: Padding](https://daddycoding.com/2020/03/15/swiftui-padding/)
