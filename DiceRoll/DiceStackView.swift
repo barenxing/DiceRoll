@@ -47,20 +47,22 @@ struct DiceStackView: View {
 
 
 struct GradientBackground: View {
-    // will support more than two colors later.
-    @State private var startColor: Color
-    @State private var endColor: Color
+    @Environment(\.colorScheme) var colorScheme
 
-    init(startColor: Color = Color(hex: 0xFFEFBA), endColor: Color = Color(hex: 0xFFFFFF)) {
-        self.startColor = startColor
-        self.endColor = endColor
-    }
-    
     var body: some View {
-        LinearGradient(gradient: Gradient(stops: [
-                Gradient.Stop(color: startColor, location: 0.0),
-                Gradient.Stop(color: endColor, location: 1.0)
-        ]), startPoint: .top, endPoint: .bottom)
+        if (colorScheme == .dark) {
+            // dark mode: https://uigradients.com/#SandtoBlue
+            LinearGradient(gradient: Gradient(stops: [
+                    Gradient.Stop(color: Color(hex: 0x3E5151), location: 0.0),
+                    Gradient.Stop(color: Color(hex: 0xDECBA4), location: 1.0)
+            ]), startPoint: .top, endPoint: .bottom)
+        } else {
+            // light mode: https://uigradients.com/#Margo
+            LinearGradient(gradient: Gradient(stops: [
+                    Gradient.Stop(color: Color(hex: 0xFFEFBA), location: 0.0),
+                    Gradient.Stop(color: Color(hex: 0xFFFFFF), location: 1.0)
+            ]), startPoint: .top, endPoint: .bottom)
+        }
     }
 }
 
