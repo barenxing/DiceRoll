@@ -61,10 +61,10 @@ struct ColorChoiceView: View {
 }
 
 //struct SettingsView_Previews: PreviewProvider {
-//    var tab = TabItemTag.setting
+//    @Binding var tab = TabItemTag.setting
 //
 //    static var previews: some View {
-//        SettingsView(tab: $tab)
+//        SettingsView(tabSelection: $tab)
 //            .environmentObject(DiceGame())
 //    }
 //}
