@@ -11,7 +11,8 @@ import SwiftUI
 class DiceGame: ObservableObject {
     // number of faces on each die, constant for now
     private let faces = 6
-    let colorOptions: Array<Color> = [.pink, .blue, .black, .green, .indigo, .purple, .brown]
+    let colorOptions: Array<Color> =
+    [.pink, .blue, .black, .green, .indigo, .purple, .brown, .orange, .cyan, .gray]
 
     @Published var diceCount: Int {
         didSet {
@@ -22,6 +23,7 @@ class DiceGame: ObservableObject {
     }
     @Published var faceColor: Color
     @Published var diceValues: Array<Int>
+    @Published var dynamicColor = true
     
     // for rolling to be an published value, need to keep it
     // as an array and not a calculated value
@@ -55,6 +57,9 @@ class DiceGame: ObservableObject {
     }
 
     func rollDice() {
+        if dynamicColor {
+            faceColor = colorOptions[Int.random(in: 1..<colorOptions.count)]
+        }
         for i in 0..<diceCount {
             rolling[i].toggle()
             diceValues[i] = Int.random(in: 1...faces)

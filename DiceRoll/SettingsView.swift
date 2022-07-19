@@ -25,14 +25,19 @@ struct SettingsView: View {
                         .pickerStyle(SegmentedPickerStyle())
                 }
             
-                Picker("Die face color?", selection: $game.faceColor) {
-                    ForEach(game.colorOptions, id: \.self) {
-                        ColorChoiceView(color: $0)
+                Section() {
+                    Picker("Die face color?", selection: $game.faceColor) {
+                        ForEach(game.colorOptions, id: \.self) {
+                            ColorChoiceView(color: $0)
+                        }
                     }
+                    
+                    Toggle("Change color for each roll", isOn: $game.dynamicColor)
                 }
+
                 
                 Section {
-                    Button("Submit") {
+                    Button("Apply") {
                         tabSelection = TabItemTag.dice
                         game.rollDice()
                     }
