@@ -23,8 +23,7 @@ struct DiceStackView: View {
                 GradientBackground()
 
                 VStack {
-                    Text("Total: \(game.totalValue)")
-                        .font(.title2)
+                    totalScore()
                     let size = min(geo.size.width, (geo.size.height - 60) / Double(game.diceCount)) * 0.85
                     ForEach(Array(game.diceFaces.enumerated()), id: \.offset) { i, die in
                         Image(systemName: die)
@@ -34,7 +33,7 @@ struct DiceStackView: View {
                             .rotationEffect(Angle.degrees(game.rolling[i] ? 360*5: 0))
                             .animation(Animation.easeInOut, value: game.rolling[i])
                             .padding(.bottom, CGFloat(5 * (game.diceCount>2 ? 1 : 4)))
-                    } // ForEach
+                    } // ForEach🧧
                 } // VStack
                     .onTapGesture(count: 1) { game.rollDice() }
                     .gesture(DragGesture().onEnded({_ in game.rollDice()}))
@@ -45,6 +44,29 @@ struct DiceStackView: View {
     } // body
 } // struct
 
+
+struct totalScore: View {
+    @EnvironmentObject var game: DiceGame
+    
+    func goodLuckCharm() -> String {
+        switch game.feelingLucky {
+        case .lucky:
+            return "🧧"
+        case .unlucky:
+            return "😿"
+        default:
+            return "🫤"
+
+        }
+    }
+    
+    var body: some View {
+        HStack {
+            Text("\(goodLuckCharm()) \(game.totalValue)")
+                .font(.largeTitle)
+        }
+    }
+}
 
 struct GradientBackground: View {
     @Environment(\.colorScheme) var colorScheme

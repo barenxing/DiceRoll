@@ -33,7 +33,8 @@ class DiceGame: ObservableObject {
         diceCount = count
         faceColor = color
         
-        diceValues = Array(repeating: 1, count: count)
+        // set a starting value of 5, a lucky value
+        diceValues = Array(repeating: 6, count: count)
         rolling = Array(repeating: true, count: count)
         rollDice()
     }
@@ -45,6 +46,18 @@ class DiceGame: ObservableObject {
 
     var totalValue: Int {
         diceValues.reduce(0, +)
+    }
+    
+    var feelingLucky: Feeling {
+        let oneThird = Double(diceCount * faces) / 3.0
+        let twoThird = Double (diceCount * faces * 2) / 3.0
+        if Double(totalValue) <= oneThird {
+            return Feeling.unlucky
+        } else if Double(totalValue) > oneThird && Double(totalValue) <= twoThird {
+            return Feeling.meh
+        } else {
+            return Feeling.lucky
+        }
     }
     
     // MARK: - Intents
@@ -64,5 +77,11 @@ class DiceGame: ObservableObject {
             rolling[i].toggle()
             diceValues[i] = Int.random(in: 1...faces)
         }
+    }
+    
+    enum Feeling {
+        case lucky
+        case meh
+        case unlucky
     }
 }
