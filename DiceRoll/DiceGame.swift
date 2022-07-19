@@ -58,7 +58,7 @@ class DiceGame: ObservableObject {
 
     func rollDice() {
         if dynamicColor {
-            faceColor = colorOptions[Int.random(in: 1..<colorOptions.count)]
+            faceColor = colorOptions[Int.random(in: 0..<colorOptions.count)]
         }
         for i in 0..<diceCount {
             rolling[i].toggle()
