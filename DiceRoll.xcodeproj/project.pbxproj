@@ -19,6 +19,8 @@
 		85AC4455286975CF00AEBCD1 /* DiceRollUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC4454286975CF00AEBCD1 /* DiceRollUITestsLaunchTests.swift */; };
 		85AC446528697DED00AEBCD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85AC446428697DED00AEBCD1 /* .gitignore */; };
 		85B2AFA0287D1DA9005801C1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2AF9F287D1DA9005801C1 /* SettingsView.swift */; };
+		85D6B49D2887B7B800791F57 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B49C2887B7B800791F57 /* AspectVGrid.swift */; };
+		85D6B49F2887B81900791F57 /* DiceGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B49E2887B81900791F57 /* DiceGridView.swift */; };
 		85F75195287790D3006EA8C0 /* ShakeGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F75194287790D3006EA8C0 /* ShakeGestureManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		85AC446328697A3200AEBCD1 /* References.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = References.md; sourceTree = "<group>"; };
 		85AC446428697DED00AEBCD1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		85B2AF9F287D1DA9005801C1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		85D6B49C2887B7B800791F57 /* AspectVGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
+		85D6B49E2887B81900791F57 /* DiceGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceGridView.swift; sourceTree = "<group>"; };
 		85F75194287790D3006EA8C0 /* ShakeGestureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeGestureManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +117,9 @@
 				85AC4437286975CD00AEBCD1 /* DiceRollApp.swift */,
 				859E297728846C6000F2FDE9 /* DiceGame.swift */,
 				85AC4439286975CD00AEBCD1 /* ContentView.swift */,
+				85D6B49C2887B7B800791F57 /* AspectVGrid.swift */,
 				853E2FCA287E76D6009B37F7 /* DiceStackView.swift */,
+				85D6B49E2887B81900791F57 /* DiceGridView.swift */,
 				85B2AF9F287D1DA9005801C1 /* SettingsView.swift */,
 				85F75194287790D3006EA8C0 /* ShakeGestureManager.swift */,
 				853E2FC8287E6CF2009B37F7 /* UtilityExtensions.swift */,
@@ -292,10 +298,12 @@
 				85AC443A286975CD00AEBCD1 /* ContentView.swift in Sources */,
 				85B2AFA0287D1DA9005801C1 /* SettingsView.swift in Sources */,
 				859E297828846C6000F2FDE9 /* DiceGame.swift in Sources */,
+				85D6B49F2887B81900791F57 /* DiceGridView.swift in Sources */,
 				85AC4438286975CD00AEBCD1 /* DiceRollApp.swift in Sources */,
 				853E2FC9287E6CF2009B37F7 /* UtilityExtensions.swift in Sources */,
 				853E2FCB287E76D6009B37F7 /* DiceStackView.swift in Sources */,
 				85F75195287790D3006EA8C0 /* ShakeGestureManager.swift in Sources */,
+				85D6B49D2887B7B800791F57 /* AspectVGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

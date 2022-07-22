@@ -25,19 +25,18 @@ struct DiceStackView: View {
                 VStack {
                     totalScore()
                     let size = min(geo.size.width, (geo.size.height - 60) / Double(game.diceCount)) * 0.85
-                    ForEach(Array(game.diceFaces.enumerated()), id: \.offset) { i, die in
-                        Image(systemName: die)
+                    ForEach(Array(game.dice.enumerated()), id: \.offset) { _, die in
+                        Image(systemName: die.face)
                             .resizable()
                             .foregroundColor(game.faceColor)
                             .frame(width: size, height: size, alignment: .center)
-                            .rotationEffect(Angle.degrees(game.rolling[i] ? 360*5: 0))
-                            .animation(Animation.easeInOut, value: game.rolling[i])
+                            .rotationEffect(Angle.degrees(game.isRolling ? 360*5 : 0))
+                            .animation(Animation.easeInOut, value: game.isRolling)
                             .padding(.bottom, CGFloat(5 * (game.diceCount>2 ? 1 : 4)))
-                    } // ForEach🧧
+                    } // ForEach
                 } // VStack
                     .onTapGesture(count: 1) { game.rollDice() }
                     .gesture(DragGesture().onEnded({_ in game.rollDice()}))
-
             } // ZStack
             .ignoresSafeArea()
         } // Geo Reader

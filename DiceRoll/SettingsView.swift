@@ -27,7 +27,7 @@ struct SettingsView: View {
             
                 Section() {
                     Picker("Die face color?", selection: $game.faceColor) {
-                        ForEach(game.colorOptions, id: \.self) {
+                        ForEach(Die.colorOptions, id: \.self) {
                             ColorChoiceView(color: $0)
                         }
                     }

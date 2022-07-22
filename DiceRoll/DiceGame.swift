@@ -8,49 +8,64 @@
 
 import SwiftUI
 
-class DiceGame: ObservableObject {
-    // number of faces on each die, constant for now
-    private let faces = 6
-    let colorOptions: Array<Color> =
-    [.pink, .blue, .black, .green, .indigo, .purple, .brown, .orange, .cyan, .gray]
-
-    @Published var diceCount: Int {
-        didSet {
-            diceValues = Array(repeating: 1, count: diceCount)
-            rolling = Array(repeating: true, count: diceCount)
-            rollDice()
-        }
-    }
-    @Published var faceColor: Color
-    @Published var diceValues: Array<Int>
-    @Published var dynamicColor = true
+struct Die: Identifiable {
+    static let colorOptions: Array<Color> =
+        [.pink, .blue, .mint, .black, .green, .indigo, .purple, .brown, .orange, .cyan, .gray]
+    static let maxValue = 6
+    let id = UUID()
     
-    // for rolling to be an published value, need to keep it
-    // as an array and not a calculated value
-    @Published var rolling: Array<Bool>
+    // each die needs to have its own rotating state
+    // in order to show animation of die rolling
+    var isRotating = false
+    var color: Color
+    var value: Int
+
+    init(value: Int, color: Color) {
+        self.value = Int.random(in: 1...Die.maxValue)
+        self.color = Die.colorOptions.randomElement()!
+    }
+    
+    init(color: Color) {
+        self.value = Int.random(in: 1...Die.maxValue)
+        self.color = color
+    }
+    
+    var face: String {
+        "die.face.\(value)"
+    }
+}
+
+class DiceGame: ObservableObject {
+    @Published var diceCount: Int
+    @Published var faceColor: Color
+    @Published var dice: Array<Die>
+    @Published var dynamicColor = true
+    @Published var isRolling = false
+    
     
     init(diceCount count: Int = 2, faceColor color: Color = .pink) {
         diceCount = count
         faceColor = color
-        
-        // set a starting value of 5, a lucky value
-        diceValues = Array(repeating: 6, count: count)
-        rolling = Array(repeating: true, count: count)
-        rollDice()
+        dice = [Die]()
+        for _ in (0..<count) {
+            dice.append(Die(color: color))
+        }
     }
     
     // MARK: - calculated var
     var diceFaces: Array<String> {
-        diceValues.map { "die.face.\($0)"}
+        dice.map { "die.face.\($0.value)"}
     }
 
     var totalValue: Int {
-        diceValues.reduce(0, +)
+        dice.reduce(0, { subtotal, y
+            in subtotal + y.value
+        })
     }
     
     var feelingLucky: Feeling {
-        let oneThird = Double(diceCount * faces) / 3.0
-        let twoThird = Double (diceCount * faces * 2) / 3.0
+        let oneThird = Double(diceCount * Die.maxValue) / 3.0
+        let twoThird = Double (diceCount * Die.maxValue * 2) / 3.0
         if Double(totalValue) <= oneThird {
             return Feeling.unlucky
         } else if Double(totalValue) > oneThird && Double(totalValue) <= twoThird {
@@ -71,11 +86,14 @@ class DiceGame: ObservableObject {
 
     func rollDice() {
         if dynamicColor {
-            faceColor = colorOptions[Int.random(in: 0..<colorOptions.count)]
+            faceColor = Die.colorOptions.randomElement()!
         }
-        for i in 0..<diceCount {
-            rolling[i].toggle()
-            diceValues[i] = Int.random(in: 1...faces)
+        isRolling.toggle()
+
+        // remove all dice and add
+        dice.removeAll()
+        for _ in (0..<diceCount) {
+            dice.append(Die(color: faceColor))
         }
     }
     
