@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Die: Identifiable {
+struct Die: Identifiable, Hashable {
     static let colorOptions: Array<Color> =
         [.pink, .blue, .mint, .black, .green, .indigo, .purple, .brown, .orange, .cyan, .gray]
     static let maxValue = 6
