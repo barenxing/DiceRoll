@@ -25,16 +25,30 @@ struct DiceGridView: View {
             VStack {
                 Spacer(minLength: 20)
                 totalScore()
-                AspectHGrid(items: game.dice, aspectRatio: 1) { die in
-                    Image(systemName: die.face)
-                        .resizable()
-                        .foregroundColor(game.faceColor)
-                        .rotationEffect(Angle.degrees(game.isRolling ? 360*5 : 0))
-                        .animation(Animation.easeInOut, value: game.faceColor)
-                        .padding(5)
-                } // AspectHGrid
-                .onTapGesture(count: 1) { game.rollDice() }
-                .gesture(DragGesture().onEnded({_ in game.rollDice()}))
+                
+                if game.diceCount < 4 {
+                    AspectHGrid(items: game.dice, aspectRatio: 1) { die in
+                        Image(systemName: die.face)
+                            .resizable()
+                            .foregroundColor(game.faceColor)
+                            .rotationEffect(Angle.degrees(game.isRolling ? 360*5 : 0))
+                            .animation(Animation.easeInOut, value: game.faceColor)
+                            .padding(5)
+                    } // AspectHGrid
+                    .onTapGesture(count: 1) { game.rollDice() }
+                    .gesture(DragGesture().onEnded({_ in game.rollDice()}))
+                } else {
+                    AspectVGrid(items: game.dice, aspectRatio: 1) { die in
+                        Image(systemName: die.face)
+                            .resizable()
+                            .foregroundColor(game.faceColor)
+                            .rotationEffect(Angle.degrees(game.isRolling ? 360*5 : 0))
+                            .animation(Animation.easeInOut, value: game.faceColor)
+                            .padding(5)
+                    } // AspectVGrid
+                    .onTapGesture(count: 1) { game.rollDice() }
+                    .gesture(DragGesture().onEnded({_ in game.rollDice()}))
+                }
             } // VStack
         } // ZStack
     } // body
