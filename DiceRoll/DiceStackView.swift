@@ -21,6 +21,7 @@ struct DiceStackView: View {
 
                 // linear Gradient background
                 GradientBackground()
+                    .ignoresSafeArea()
 
                 VStack {
                     totalScore()
@@ -38,54 +39,9 @@ struct DiceStackView: View {
                     .onTapGesture(count: 1) { game.rollDice() }
                     .gesture(DragGesture().onEnded({_ in game.rollDice()}))
             } // ZStack
-            .ignoresSafeArea()
         } // Geo Reader
     } // body
 } // struct
-
-
-struct totalScore: View {
-    @EnvironmentObject var game: DiceGame
-    
-    func goodLuckCharm() -> String {
-        switch game.feelingLucky {
-        case .lucky:
-            return "🧧"
-        case .unlucky:
-            return "😿"
-        default:
-            return "🫤"
-
-        }
-    }
-    
-    var body: some View {
-        HStack {
-            Text("\(goodLuckCharm()) \(game.totalValue)")
-                .font(.largeTitle)
-        }
-    }
-}
-
-struct GradientBackground: View {
-    @Environment(\.colorScheme) var colorScheme
-
-    var body: some View {
-        if (colorScheme == .dark) {
-            // dark mode: https://uigradients.com/#SandtoBlue
-            LinearGradient(gradient: Gradient(stops: [
-                    Gradient.Stop(color: Color(hex: 0x3E5151), location: 0.0),
-                    Gradient.Stop(color: Color(hex: 0xDECBA4), location: 1.0)
-            ]), startPoint: .top, endPoint: .bottom)
-        } else {
-            // light mode: https://uigradients.com/#Margo
-            LinearGradient(gradient: Gradient(stops: [
-                    Gradient.Stop(color: Color(hex: 0xFFEFBA), location: 0.0),
-                    Gradient.Stop(color: Color(hex: 0xFFFFFF), location: 1.0)
-            ]), startPoint: .top, endPoint: .bottom)
-        }
-    }
-}
 
 
 struct DiceStackView_Previews: PreviewProvider {
