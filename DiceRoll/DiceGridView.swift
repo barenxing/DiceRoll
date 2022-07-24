@@ -32,7 +32,7 @@ struct DiceGridView: View {
                             .resizable()
                             .foregroundColor(game.faceColor)
                             .rotationEffect(Angle.degrees(game.isRolling ? 360*5 : 0))
-                            .animation(Animation.easeInOut, value: game.faceColor)
+                            .animation(Animation.easeInOut, value: game.isRolling)
                             .padding(5)
                     } // AspectHGrid
                     .onTapGesture(count: 1) { game.rollDice() }
@@ -43,7 +43,7 @@ struct DiceGridView: View {
                             .resizable()
                             .foregroundColor(game.faceColor)
                             .rotationEffect(Angle.degrees(game.isRolling ? 360*5 : 0))
-                            .animation(Animation.easeInOut, value: game.faceColor)
+                            .animation(Animation.easeInOut, value: game.isRolling)
                             .padding(5)
                     } // AspectVGrid
                     .onTapGesture(count: 1) { game.rollDice() }
