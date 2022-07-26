@@ -18,3 +18,6 @@ Icons used in this game are from https://game-icons.net
 
 ### Confetti/Fireworks Particle Effects
  - Sarah Alsharif: [Creating Confetti Particle Effects Using SwiftUI](https://betterprogramming.pub/creating-confetti-particle-effects-using-swiftui-afda4240de6b)
+
+### AspectVGrid
+ - Paul Hegarty: [Stanford University CS193p Spring 2021](https://www.youtube.com/playlist?list=PLpGHT1n4-mAsxuRxVPv7kj4-dQYoC3VVu)
