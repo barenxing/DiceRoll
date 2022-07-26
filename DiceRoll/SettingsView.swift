@@ -34,17 +34,23 @@ struct SettingsView: View {
                     
                     Toggle("Change color for each roll", isOn: $game.dynamicColor)
                 }
-
                 
-                Section {
-                    Button("Apply") {
-                        tabSelection = TabItemTag.dice
-                        game.rollDice()
-                    }
-                }
+//                Section {
+//                    Button("Apply") {
+//                        tabSelection = TabItemTag.dice
+//                        game.rollDice()
+//                    }
+//                }
             } // Form
             .navigationTitle("Settings")
+            .navigationBarItems(trailing:
+                Button("Done") {
+                    tabSelection = TabItemTag.dice
+                    game.rollDice()
+                }
+            )
         } // NavigationView
+        .navigationViewStyle(.stack)
     } // body
 }
 

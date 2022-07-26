@@ -16,3 +16,5 @@ Icons used in this game are from https://game-icons.net
  - Sand to Blue: [https://uigradients.com/#Margo](https://uigradients.com/#SandtoBlue)
  - Compare Now: [https://uigradients.com/#CompareNow](https://uigradients.com/#CompareNow)
 
+### Confetti/Fireworks Particle Effects
+ - Sarah Alsharif: [Creating Confetti Particle Effects Using SwiftUI](https://betterprogramming.pub/creating-confetti-particle-effects-using-swiftui-afda4240de6b)

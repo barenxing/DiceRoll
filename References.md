@@ -18,6 +18,7 @@ This is the reference file for DiceRoll Project
   - [Using Range and Count](https://stackoverflow.com/questions/57244713/get-index-in-foreach-in-swiftui)
   - [Iterate over two arrays simultaneously](https://stackoverflow.com/questions/29217690/iterate-over-two-arrays-simultaneously#)
   - [Detect shake gesture IOS Swift](https://stackoverflow.com/questions/33503531/detect-shake-gesture-ios-swift)
+  - [SwiftUI - Determining Current Device and Orientation](https://stackoverflow.com/questions/65573508/swiftui-determining-current-device-and-orientation)
 - **Game-icons.net**
   - [116 Board & Card Icons](https://game-icons.net/tags/board.html)
 - **blckbirds.com**
@@ -30,4 +31,6 @@ This is the reference file for DiceRoll Project
 - **[SwiftUI: Padding](https://daddycoding.com/2020/03/15/swiftui-padding/)
 - **sarunw.com**
   - [SwiftUI Grid - The Complete Guide](https://sarunw.com/posts/swiftui-grid/)
-  - [CollectionView in SwiftUI with LazyVGrid and LazyHGrid](https://sarunw.com/posts/swiftui-lazyvgrid-lazyhgrid/)	
+  - [CollectionView in SwiftUI with LazyVGrid and LazyHGrid](https://sarunw.com/posts/swiftui-lazyvgrid-lazyhgrid/)
+- **Medium**
+  - [Creating Confetti Particle Effects Using SwiftUI](https://betterprogramming.pub/creating-confetti-particle-effects-using-swiftui-afda4240de6b)

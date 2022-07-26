@@ -11,7 +11,7 @@ import SwiftUI
 struct Die: Identifiable, Hashable {
     static let colorOptions: Array<Color> =
         [.pink, .blue, .mint, .black, .green, .indigo, .purple, .brown, .orange, .cyan, .gray]
-    static let maxValue = 6
+    static let maxFaceValue = 6
     let id = UUID()
     
     // each die needs to have its own rotating state
@@ -21,12 +21,12 @@ struct Die: Identifiable, Hashable {
     var value: Int
 
     init(value: Int, color: Color) {
-        self.value = Int.random(in: 1...Die.maxValue)
+        self.value = Int.random(in: 1...Die.maxFaceValue)
         self.color = Die.colorOptions.randomElement()!
     }
     
     init(color: Color) {
-        self.value = Int.random(in: 1...Die.maxValue)
+        self.value = Int.random(in: 1...Die.maxFaceValue)
         self.color = color
     }
     
@@ -63,9 +63,13 @@ class DiceGame: ObservableObject {
         })
     }
     
+    var maxTotalValue: Int {
+        Die.maxFaceValue * diceCount
+    }
+
     var feelingLucky: Feeling {
-        let oneThird = Double(diceCount * Die.maxValue) / 3.0
-        let twoThird = Double (diceCount * Die.maxValue * 2) / 3.0
+        let oneThird = Double(diceCount * Die.maxFaceValue) / 3.0
+        let twoThird = Double (diceCount * Die.maxFaceValue * 2) / 3.0
         if Double(totalValue) <= oneThird {
             return Feeling.unlucky
         } else if Double(totalValue) > oneThird && Double(totalValue) <= twoThird {
